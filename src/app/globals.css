@@ -1,4 +1,7 @@
 @import "tailwindcss";
+/* @tailwind base;
+@tailwind components; */
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
@@ -23,4 +26,629 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #2d3748;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.15s ease-out forwards;
+}
+
+
+
+/* about page */
+
+
+.about-page {
+  --forest: #073d2b;
+  --green: #087a51;
+  --mint: #dff5e8;
+  --gold: #e9a629;
+  --ink: #183b2d;
+  --muted: #65766b;
+  color: var(--ink);
+  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.about-page * {
+  box-sizing: border-box;
+}
+
+.about-container {
+  width: min(1160px, 90%);
+  margin: 0 auto;
+}
+
+.about-page a {
+  text-decoration: none;
+}
+
+.about-hero {
+  min-height: 570px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(3, 42, 28, .93), rgba(4, 58, 38, .57)),
+    url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=90")
+    center 48% / cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 80% 45%,
+    transparent,
+    rgba(0, 25, 16, .35)
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 90px 0;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 17px;
+  color: #b5f3d1;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2.2px;
+}
+
+.dark-eyebrow {
+  color: var(--green);
+}
+
+.hero-content h1 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(38px, 6vw, 68px);
+  line-height: 1.12;
+  letter-spacing: -1.8px;
+}
+
+.hero-content h1 span,
+.about-copy h2 span {
+  color: #7ee2af;
+}
+
+.hero-content > p {
+  max-width: 580px;
+  margin: 24px 0 30px;
+  color: #e2f2e9;
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.hero-actions,
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  padding: 13px 22px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform .2s, background .2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-primary {
+  color: white;
+  background: var(--green);
+}
+
+.btn-primary:hover {
+  background: #056642;
+}
+
+.btn-outline {
+  color: white;
+  border: 1px solid rgba(255, 255, 255, .7);
+}
+
+.btn-light {
+  color: var(--forest);
+  background: white;
+}
+
+.btn-outline-dark {
+  color: var(--forest);
+  border: 1px solid #a5b7ab;
+}
+
+.hero-bottom {
+  position: absolute;
+  right: 5%;
+  bottom: 25px;
+  display: flex;
+  gap: 25px;
+  color: #d4eddf;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.stats-section {
+  position: relative;
+  z-index: 2;
+  padding: 0 0 55px;
+  background: #f7faf7;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  transform: translateY(-25px);
+}
+
+.stat-card {
+  padding: 25px 12px;
+  text-align: center;
+  background: white;
+  border: 1px solid #e6eee8;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(10, 65, 39, .06);
+}
+
+.stat-card h2 {
+  margin: 0 0 8px;
+  color: var(--green);
+  font-size: clamp(23px, 3vw, 34px);
+}
+
+.stat-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.about-section,
+.values-section,
+.campus-section,
+.philosophy-section,
+.therapies-section,
+.contact-section {
+  padding: 90px 0;
+}
+
+.about-grid,
+.campus-grid,
+.therapy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 65px;
+}
+
+.about-image-wrap {
+  position: relative;
+  padding: 0 20px 20px 0;
+}
+
+.about-image,
+.campus-image {
+  display: block;
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.about-image-wrap::before {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  width: 75%;
+  height: 75%;
+  content: "";
+  background: #dff3e6;
+  border-radius: 12px;
+}
+
+.image-caption {
+  position: absolute;
+  right: 0;
+  bottom: 42px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 19px;
+  background: white;
+  border-radius: 9px;
+  box-shadow: 0 8px 30px #00000015;
+}
+
+.image-caption > span {
+  font-size: 28px;
+}
+
+.image-caption strong {
+  font-size: 13px;
+}
+
+.image-caption p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.about-copy h2,
+.campus-grid h2,
+.therapy-grid h2,
+.contact-inner h2 {
+  margin: 0 0 20px;
+  font-size: clamp(29px, 4vw, 43px);
+  line-height: 1.25;
+  letter-spacing: -.8px;
+}
+
+.about-copy h2 span {
+  color: var(--green);
+}
+
+.about-copy > p,
+.campus-grid p,
+.therapy-grid > div > p,
+.contact-inner > p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.mission-points {
+  display: grid;
+  gap: 14px;
+  margin: 25px 0;
+}
+
+.mission-points div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mission-points span {
+  display: grid;
+  flex: 0 0 25px;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  color: var(--green);
+  background: var(--mint);
+  border-radius: 50%;
+}
+
+.mission-points p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.text-link {
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.values-section,
+.therapies-section {
+  background: #f5f9f5;
+}
+
+.section-heading {
+  max-width: 660px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.section-heading h2 {
+  margin: 0 0 14px;
+  font-size: clamp(30px, 4vw, 42px);
+}
+
+.section-heading > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 23px;
+}
+
+.value-card,
+.element-card {
+  padding: 30px 25px;
+  background: white;
+  border: 1px solid #e6eee7;
+  border-radius: 12px;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.value-card:hover,
+.element-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px #073d2b12;
+}
+
+.value-icon,
+.element-icon {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  place-items: center;
+  background: var(--mint);
+  border-radius: 12px;
+  font-size: 27px;
+}
+
+.value-card h3,
+.element-card h3 {
+  margin: 0 0 12px;
+  font-size: 19px;
+}
+
+.value-card p,
+.element-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.campus-grid {
+  grid-template-columns: .9fr 1.1fr;
+}
+
+.campus-image {
+  height: 380px;
+}
+
+.campus-grid .btn {
+  margin-top: 18px;
+}
+
+.philosophy-section {
+  background: var(--forest);
+  color: white;
+}
+
+.philosophy-section .section-heading > p {
+  color: #d1e4d7;
+}
+
+.philosophy-section .section-heading h2 {
+  font-size: clamp(32px, 4vw, 44px);
+}
+
+.elements-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.element-card {
+  padding: 24px 18px;
+  color: var(--ink);
+}
+
+.element-icon {
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+}
+
+.element-card h3 {
+  font-size: 17px;
+}
+
+.therapy-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.therapy-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 65px;
+  padding: 15px;
+  background: white;
+  border: 1px solid #e3ece5;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.therapy-item span {
+  color: var(--green);
+}
+
+.camp-section {
+  padding: 70px 0;
+  background: #f5f9f5;
+}
+
+.camp-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding: 45px;
+  color: white;
+  background:
+    linear-gradient(100deg, #06452f, #138356);
+  border-radius: 16px;
+}
+
+.camp-card > div {
+  max-width: 650px;
+}
+
+.camp-card h2 {
+  margin: 0 0 15px;
+  font-size: clamp(28px, 4vw, 40px);
+}
+
+.camp-card p {
+  margin: 0;
+  color: #d7ecdf;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.contact-section {
+  text-align: center;
+}
+
+.contact-inner {
+  max-width: 760px;
+}
+
+.contact-inner h2 {
+  margin-bottom: 15px;
+}
+
+.contact-inner > p {
+  max-width: 620px;
+  margin: 0 auto 25px;
+}
+
+.contact-actions {
+  justify-content: center;
+}
+
+.contact-inner .disclaimer {
+  margin-top: 35px;
+  font-size: 12px;
+}
+
+@media (max-width: 850px) {
+  .about-grid,
+  .campus-grid,
+  .therapy-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .elements-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .camp-card {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 32px;
+  }
+}
+
+@media (max-width: 520px) {
+  .about-container {
+    width: 90%;
+  }
+
+  .about-hero {
+    min-height: 520px;
+  }
+
+  .hero-content {
+    padding: 65px 0;
+  }
+
+  .hero-content > p {
+    font-size: 15px;
+  }
+
+  .hero-bottom {
+    gap: 12px;
+    font-size: 10px;
+  }
+
+  .about-section,
+  .values-section,
+  .campus-section,
+  .philosophy-section,
+  .therapies-section,
+  .contact-section {
+    padding: 60px 0;
+  }
+
+  .stats-grid {
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 22px 8px;
+  }
+
+  .about-image,
+  .campus-image {
+    height: 320px;
+  }
+
+  .values-grid,
+  .elements-grid,
+  .therapy-list {
+    grid-template-columns: 1fr;
+  }
+
+  .camp-card {
+    padding: 25px 20px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
 }
